@@ -126,23 +126,32 @@
     </div>
   </div>
 </section>
-  
-<!-- ===================== Teaser Video ===================== -->
-<section class="hero teaser">
+
+
+
+<section class="section">
   <div class="container is-max-desktop">
-    <div class="hero-body" style="text-align: center">
-      <div class="columns is-centered">
-
-        <video autoplay muted loop playsinline 
-               style="pointer-events: none; max-width: 100%; height: auto;">
-          <source src="./static/astrobee.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-2">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We present ConicLoc, a map-free monocular visual localization method that leverages time-invariant conic geometric primitives in structured environments for estimating the six degrees of freedom (DoF) camera poses.
+Existing visual localization approaches depend on handcrafted keypoints, semantic cues, or pre-built maps, making them vulnerable to illumination changes, occlusions, and frequent environmental reconfigurations.
+To overcome these limitations, we exploit time-invariant conic geometry and Manhattan world (MW) regularities that naturally arise in human-made environments.
+We first propose a Perspective-Two-Circle (P2C) that leverages the known radii of two circular structures to recover an initial camera pose without requiring depth measurements or prior maps.
+Given the conic normals from P2C, we infer dominant Manhattan directions and achieve drift-free orientation estimation by integrating MW-aligned lines.
+We further refine 6-DoF camera poses through a novel conic bundle adjustment (CBA) with algebraic conic residuals.
+We evaluate the proposed method on synthetic and real-world datasets, including free-flying robot sequences collected on the International Space Station (ISS).
+Despite operating in a fully map-free monocular setting, the localization accuracy of the proposed ConicLoc is comparable to existing map-based visual localization methods, demonstrating that ConicLoc enables reliable global pose estimation even in highly complex and challenging environments without relying on pre-built maps.
+           </p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+    <!--/ Abstract. -->
+
+
 
 
 <!-- ===================== ConicLoc Results Section ===================== -->
@@ -180,43 +189,55 @@
   </div>
 </section>
   
+  
+<!-- ===================== Pipeline Section ===================== -->
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
+
+    <!-- Title -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-2">Abstract</h2>
+        <h2 class="title is-2">Pipeline</h2>
+      </div>
+    </div>
+
+    <!-- Description -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
         <div class="content has-text-justified">
           <p>
-            We present ConicLoc, a map-free monocular visual localization method that leverages time-invariant conic geometric primitives in structured environments for estimating the six degrees of freedom (DoF) camera poses.
-Existing visual localization approaches depend on handcrafted keypoints, semantic cues, or pre-built maps, making them vulnerable to illumination changes, occlusions, and frequent environmental reconfigurations.
-To overcome these limitations, we exploit time-invariant conic geometry and Manhattan world (MW) regularities that naturally arise in human-made environments.
-We first propose a Perspective-Two-Circle (P2C) that leverages the known radii of two circular structures to recover an initial camera pose without requiring depth measurements or prior maps.
-Given the conic normals from P2C, we infer dominant Manhattan directions and achieve drift-free orientation estimation by integrating MW-aligned lines.
-We further refine 6-DoF camera poses through a novel conic bundle adjustment (CBA) with algebraic conic residuals.
-We evaluate the proposed method on synthetic and real-world datasets, including free-flying robot sequences collected on the International Space Station (ISS).
-Despite operating in a fully map-free monocular setting, the localization accuracy of the proposed ConicLoc is comparable to existing map-based visual localization methods, demonstrating that ConicLoc enables reliable global pose estimation even in highly complex and challenging environments without relying on pre-built maps.
-           </p>
+            The ConicLoc pipeline estimates 6-DoF camera pose using 
+            <strong>two circular structures</strong> (hatch and window) 
+            together with <strong>Manhattan World line constraints</strong>.
+          </p>
+
+          <p>
+            Given detected ellipses and structural line segments in the image, 
+            we recover the geometric relationship between projected conics and 
+            their corresponding 3D circles. The Manhattan constraints provide 
+            additional orientation regularization, improving robustness under 
+            centroid, axis, and angle noise.
+          </p>
+
+          <p>
+            The final pose is refined through nonlinear optimization using 
+            conic reprojection residuals and line alignment constraints.
+          </p>
         </div>
       </div>
     </div>
-    <!--/ Abstract. -->
 
-  
-    <!-- Paper video. -->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body" style="text-align: center">
-      <div class="columns is-centered">
-        
-        <video autoplay muted loop playsinline 
+    <!-- Video -->
+    <div class="columns is-centered">
+      <div class="column is-full has-text-centered">
+        <video autoplay muted loop playsinline
                style="pointer-events: none; max-width: 100%; height: auto;">
           <source src="./static/pipeline.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
-
       </div>
     </div>
+
   </div>
 </section>
 
